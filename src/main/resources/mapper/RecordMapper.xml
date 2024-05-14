@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudan.study-room.generator.dao.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.fudan.study-room.generator.entity.Record" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="reserve_time" property="reserveTime" jdbcType="TIMESTAMP" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="attendance" property="attendance" jdbcType="BIT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fudan.study-room.generator.entity.Record" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into record (`uid`, rid, sid, 
+      reserve_time, start_time, end_time, 
+      attendance)
+    values (#{uid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, 
+      #{reserveTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{attendance,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.fudan.study-room.generator.entity.Record" >
+    update record
+    set `uid` = #{uid,jdbcType=INTEGER},
+      rid = #{rid,jdbcType=INTEGER},
+      sid = #{sid,jdbcType=INTEGER},
+      reserve_time = #{reserveTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      attendance = #{attendance,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, `uid`, rid, sid, reserve_time, start_time, end_time, attendance
+    from record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, `uid`, rid, sid, reserve_time, start_time, end_time, attendance
+    from record
+  </select>
+</mapper>

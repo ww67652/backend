@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fudan.study-room.generator.dao.RoomMapper" >
+  <resultMap id="BaseResultMap" type="com.fudan.study-room.generator.entity.Room" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="available" property="available" jdbcType="BIT" />
+    <result column="type" property="type" jdbcType="BIT" />
+    <result column="open_start_time" property="openStartTime" jdbcType="TIME" />
+    <result column="open_end_time" property="openEndTime" jdbcType="TIME" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from room
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fudan.study-room.generator.entity.Room" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into room (address, available, `type`, 
+      open_start_time, open_end_time)
+    values (#{address,jdbcType=VARCHAR}, #{available,jdbcType=BIT}, #{type,jdbcType=BIT}, 
+      #{openStartTime,jdbcType=TIME}, #{openEndTime,jdbcType=TIME})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.fudan.study-room.generator.entity.Room" >
+    update room
+    set address = #{address,jdbcType=VARCHAR},
+      available = #{available,jdbcType=BIT},
+      `type` = #{type,jdbcType=BIT},
+      open_start_time = #{openStartTime,jdbcType=TIME},
+      open_end_time = #{openEndTime,jdbcType=TIME}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, address, available, `type`, open_start_time, open_end_time
+    from room
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, address, available, `type`, open_start_time, open_end_time
+    from room
+  </select>
+</mapper>
