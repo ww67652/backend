@@ -1,8 +1,11 @@
 package com.fudan.studyroom.entity;
 
 
+import lombok.Getter;
+
 import java.io.Serializable;
 
+@Getter
 public class User implements Serializable {
     private Integer id;
 
@@ -12,48 +15,29 @@ public class User implements Serializable {
 
     private String nickname;
 
-    private Byte permission;
+    private String role;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
-
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public String getNickname() {
-        return nickname;
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname == null ? null : nickname.trim();
     }
 
-    public Byte getPermission() {
-        return permission;
-    }
 
-    public void setPermission(Byte permission) {
-        this.permission = permission;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
@@ -66,7 +50,7 @@ public class User implements Serializable {
         sb.append(", username=").append(username);
         sb.append(", password=").append(password);
         sb.append(", nickname=").append(nickname);
-        sb.append(", permission=").append(permission);
+        sb.append(", role=").append(role);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -88,7 +72,7 @@ public class User implements Serializable {
             && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
             && (this.getNickname() == null ? other.getNickname() == null : this.getNickname().equals(other.getNickname()))
-            && (this.getPermission() == null ? other.getPermission() == null : this.getPermission().equals(other.getPermission()));
+            && (this.getRole() == null ? other.getRole() == null : this.getRole().equals(other.getRole()));
     }
 
     @Override
@@ -99,7 +83,7 @@ public class User implements Serializable {
         result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getNickname() == null) ? 0 : getNickname().hashCode());
-        result = prime * result + ((getPermission() == null) ? 0 : getPermission().hashCode());
+        result = prime * result + ((getRole() == null) ? 0 : getRole().hashCode());
         return result;
     }
 }

@@ -38,4 +38,10 @@
     select id, username, `password`, nickname, permission
     from user
   </select>
+  <select id="selectByNameAndPassword" resultMap="BaseResultMap">
+    select * from user where username = #{username} and password = #{password}
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap">
+    select * from user where username = #{username}
+  </select>
 </mapper>
