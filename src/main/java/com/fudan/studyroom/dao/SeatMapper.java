@@ -1,8 +1,5 @@
-package com.fudan.studyroom.dao
-
--room.generator.dao;
-
-import com.fudan.study-room.generator.entity.Seat;
+package com.fudan.studyroom.dao;
+import com.fudan.studyroom.entity.Seat;
 import java.util.List;
 
 public interface SeatMapper {

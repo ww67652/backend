@@ -1,8 +1,5 @@
-package com.fudan.studyroom.dao
-
--room.generator.dao;
-
-import com.fudan.study-room.generator.entity.User;
+package com.fudan.studyroom.dao;
+import com.fudan.studyroom.entity.User;
 import java.util.List;
 
 public interface UserMapper {
@@ -15,4 +12,8 @@ public interface UserMapper {
     List<User> selectAll();
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectByNameAndPassword(String name, String password);
+
+    User selectByName(String name);
 }
