@@ -4,9 +4,9 @@ spring:
     name: study_room
   datasource:
     name: study_room
-    url: jdbc:mysql://localhost:3306/pj?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    username: root
-    password: 2001825lcy
+    url: jdbc:mysql://118.25.194.239:3306/study_room?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: study_room
+    password: Aa123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
