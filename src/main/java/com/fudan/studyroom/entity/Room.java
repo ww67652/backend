@@ -16,6 +16,16 @@ public class Room implements Serializable {
 
     private Date openEndTime;
 
+    public int getSeatNum() {
+        return seatNum;
+    }
+
+    public void setSeatNum(int seatNum) {
+        this.seatNum = seatNum;
+    }
+
+    private int seatNum;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
