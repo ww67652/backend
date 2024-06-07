@@ -2,6 +2,7 @@ package com.fudan.studyroom.controller;
 
 import com.fudan.studyroom.entity.Seat;
 import com.fudan.studyroom.service.SeatService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 @RequestMapping("/api/seats")
+@Controller
 public class SeatController {
 
     @Resource

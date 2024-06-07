@@ -2,6 +2,7 @@ package com.fudan.studyroom.controller;
 
 import com.fudan.studyroom.entity.Room;
 import com.fudan.studyroom.service.RoomService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 
 @RequestMapping("/api/studyrooms")
+@Controller
 public class RoomController {
 
     @Resource
