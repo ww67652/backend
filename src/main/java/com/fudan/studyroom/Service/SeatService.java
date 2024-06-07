@@ -10,4 +10,5 @@ public interface SeatService {
     void updateSeat(Integer seatId, Seat seat);
 
     Seat getSeat(Integer seatId);
+
 }

@@ -13,7 +13,7 @@ mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath:dao/*.xml
-  type-aliases-package: com.fudan.study-room.mybatis.entity
+  type-aliases-package: com.fudan.studyroom.mybatis.entity
 
 logging:
   level:

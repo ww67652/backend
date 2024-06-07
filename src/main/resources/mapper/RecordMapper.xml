@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fudan.study-room.generator.dao.RecordMapper" >
-  <resultMap id="BaseResultMap" type="com.fudan.study-room.generator.entity.Record" >
+<mapper namespace="com.fudan.studyroom.dao.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.fudan.studyroom.entity.Record" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="rid" property="rid" jdbcType="INTEGER" />
@@ -15,7 +15,7 @@
     delete from record
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fudan.study-room.generator.entity.Record" >
+  <insert id="insert" parameterType="com.fudan.studyroom.entity.Record" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -26,7 +26,7 @@
       #{reserveTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{attendance,jdbcType=BIT})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.fudan.study-room.generator.entity.Record" >
+  <update id="updateByPrimaryKey" parameterType="com.fudan.studyroom.entity.Record" >
     update record
     set `uid` = #{uid,jdbcType=INTEGER},
       rid = #{rid,jdbcType=INTEGER},

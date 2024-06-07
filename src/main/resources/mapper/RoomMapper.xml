@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fudan.study-room.generator.dao.RoomMapper" >
-  <resultMap id="BaseResultMap" type="com.fudan.study-room.generator.entity.Room" >
+<mapper namespace="com.fudan.studyroom.dao.RoomMapper" >
+  <resultMap id="BaseResultMap" type="com.fudan.studyroom.entity.Room" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="available" property="available" jdbcType="BIT" />
@@ -13,7 +13,7 @@
     delete from room
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fudan.study-room.generator.entity.Room" >
+  <insert id="insert" parameterType="com.fudan.studyroom.entity.Room" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -22,7 +22,7 @@
     values (#{address,jdbcType=VARCHAR}, #{available,jdbcType=BIT}, #{type,jdbcType=BIT}, 
       #{openStartTime,jdbcType=TIME}, #{openEndTime,jdbcType=TIME})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.fudan.study-room.generator.entity.Room" >
+  <update id="updateByPrimaryKey" parameterType="com.fudan.studyroom.entity.Room" >
     update room
     set address = #{address,jdbcType=VARCHAR},
       available = #{available,jdbcType=BIT},

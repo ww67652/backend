@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RequestMapping("/api/studyrooms")
 @Controller
@@ -27,12 +28,6 @@ public class RoomController {
         roomService.deleteRoom(roomId);
     }
 
-
-    // 示例：获取所有房间
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public void getAllRooms() {
-        roomService.getAllRooms();
-    }
 
     // 示例：更新自习室
     @RequestMapping(value = "/{roomId}",method = RequestMethod.PUT)

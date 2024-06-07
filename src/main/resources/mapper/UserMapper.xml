@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fudan.study-room.generator.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.fudan.study-room.generator.entity.User" >
+<mapper namespace="com.fudan.studyroom.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.fudan.studyroom.entity.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -12,7 +12,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fudan.study-room.generator.entity.User" >
+  <insert id="insert" parameterType="com.fudan.studyroom.entity.User" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -21,7 +21,7 @@
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
       #{permission,jdbcType=TINYINT})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.fudan.study-room.generator.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="com.fudan.studyroom.entity.User" >
     update user
     set username = #{username,jdbcType=VARCHAR},
       `password` = #{password,jdbcType=VARCHAR},

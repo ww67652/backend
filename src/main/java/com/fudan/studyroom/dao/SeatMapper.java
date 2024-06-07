@@ -1,7 +1,10 @@
 package com.fudan.studyroom.dao;
 import com.fudan.studyroom.entity.Seat;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface SeatMapper {
     int deleteByPrimaryKey(Integer id);
 

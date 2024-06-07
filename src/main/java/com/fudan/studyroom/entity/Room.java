@@ -1,8 +1,11 @@
 package com.fudan.studyroom.entity;
 
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Getter
 public class Room implements Serializable {
     private Integer id;
 
@@ -16,10 +19,6 @@ public class Room implements Serializable {
 
     private Date openEndTime;
 
-    public int getSeatNum() {
-        return seatNum;
-    }
-
     public void setSeatNum(int seatNum) {
         this.seatNum = seatNum;
     }
@@ -28,48 +27,24 @@ public class Room implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
-
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getAddress() {
-        return address;
     }
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
     }
 
-    public Boolean getAvailable() {
-        return available;
-    }
-
     public void setAvailable(Boolean available) {
         this.available = available;
-    }
-
-    public Boolean getType() {
-        return type;
     }
 
     public void setType(Boolean type) {
         this.type = type;
     }
 
-    public Date getOpenStartTime() {
-        return openStartTime;
-    }
-
     public void setOpenStartTime(Date openStartTime) {
         this.openStartTime = openStartTime;
-    }
-
-    public Date getOpenEndTime() {
-        return openEndTime;
     }
 
     public void setOpenEndTime(Date openEndTime) {
@@ -78,19 +53,17 @@ public class Room implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", address=").append(address);
-        sb.append(", available=").append(available);
-        sb.append(", type=").append(type);
-        sb.append(", openStartTime=").append(openStartTime);
-        sb.append(", openEndTime=").append(openEndTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", address=" + address +
+                ", available=" + available +
+                ", type=" + type +
+                ", openStartTime=" + openStartTime +
+                ", openEndTime=" + openEndTime +
+                ", serialVersionUID=" + serialVersionUID +
+                "]";
     }
 
     @Override

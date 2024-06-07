@@ -43,4 +43,5 @@ public class SeatController {
             @PathVariable("seatId")Integer seatId) {
         return seatService.getSeat(seatId);
     }
+
 }
