@@ -15,8 +15,10 @@ public class Room implements Serializable {
 
     private Boolean type;
 
+    @Getter
     private Date openStartTime;
 
+    @Getter
     private Date openEndTime;
 
     public void setSeatNum(int seatNum) {

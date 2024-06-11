@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/api/studyrooms")
@@ -19,7 +20,16 @@ public class RoomController {
     RoomService roomService;
     // 示例：添加房间
     @RequestMapping(value = "",method = RequestMethod.POST)
-    public void addRoom(Room room) {
+    public void addRoom(String address, Date startTime, Date endTime, boolean available,
+                        @RequestParam(defaultValue = "0") boolean type,
+                        @RequestParam(defaultValue = "0") int SeatNum) {
+        Room room = new Room();
+        room.setAddress(address);
+        room.setOpenStartTime(startTime);
+        room.setOpenEndTime(endTime);
+        room.setAvailable(available);
+        room.setType(type);
+        room.setSeatNum(SeatNum);
         roomService.addRoom(room);
     }
 
@@ -31,7 +41,16 @@ public class RoomController {
 
     // 示例：更新自习室
     @RequestMapping(value = "/{roomId}",method = RequestMethod.PUT)
-    public void updateRoom(@PathVariable("roomId") int roomId, Room room) {
+    public void updateRoom(@PathVariable("roomId") int roomId, String address, Date startTime, Date endTime, boolean available,
+                           @RequestParam(defaultValue = "0") boolean type,
+                           @RequestParam(defaultValue = "0") int SeatNum) {
+        Room room = new Room();
+        room.setAddress(address);
+        room.setOpenStartTime(startTime);
+        room.setOpenEndTime(endTime);
+        room.setAvailable(available);
+        room.setType(type);
+        room.setSeatNum(SeatNum);
         roomService.updateRoom(roomId, room);
     }
 
