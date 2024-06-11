@@ -18,7 +18,7 @@ public class RoomController {
     @Resource
     RoomService roomService;
     // 示例：添加房间
-    @RequestMapping(value = "",method = RequestMethod.GET)
+    @RequestMapping(value = "",method = RequestMethod.POST)
     public void addRoom(Room room) {
         roomService.addRoom(room);
     }
