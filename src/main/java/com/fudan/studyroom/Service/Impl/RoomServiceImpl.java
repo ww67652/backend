@@ -32,4 +32,10 @@ public class RoomServiceImpl implements RoomService {
         roomMapper.updateByPrimaryKey(roomId, room);
     }
 
+    @Override
+    public List<Room> getRooms(String building, Integer floor, Integer room, boolean available) {
+        String address = building + floor + "0" + room;
+        return roomMapper.selectByAddress(address, available);
+    }
+
 }

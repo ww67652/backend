@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @RequestMapping("/api/seats")
 @Controller
@@ -48,8 +49,10 @@ public class SeatController {
     public void ReserveSeat(
             @PathVariable("roomId")Integer roomId,
             @RequestParam("seatId")Integer seatId,
-            @RequestParam("userId")Integer userId) {
-        seatService.ReserveSeat(roomId, seatId, userId);
+            @RequestParam("userId")Integer userId,
+            @RequestParam("startTime") Date startTime,
+            @RequestParam("endTime")Date endTime) {
+        seatService.ReserveSeat(roomId, seatId, userId, startTime, endTime);
     }
 
 

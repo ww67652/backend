@@ -14,5 +14,5 @@ public interface SeatMapper {
 
     List<Seat> selectAll();
 
-    int updateByPrimaryKey(Integer id, Seat record);
+    int updateByPrimaryKey(Integer id, Seat seat);
 }
