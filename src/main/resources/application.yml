@@ -20,6 +20,6 @@ logging:
     root: info
 
 server:
-  port: 8081
+  port: 8082
   use-forward-headers: true
 

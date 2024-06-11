@@ -1,11 +1,11 @@
 package com.fudan.studyroom.entity;
 
 
+import lombok.Data;
 import lombok.Getter;
 
 import java.io.Serializable;
-
-@Getter
+@Data
 public class Seat implements Serializable {
     private Integer id;
 

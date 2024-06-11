@@ -37,7 +37,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/{username})", method = RequestMethod.GET)
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public User getUser(
             @PathVariable("username") String username
             ) {

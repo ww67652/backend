@@ -23,9 +23,9 @@
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.fudan.studyroom.entity.User" >
     update user
-    set username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR},
+    set username = #{userName,jdbcType=VARCHAR},
+      `password` = #{passWord,jdbcType=VARCHAR},
+      nickname = #{nickName,jdbcType=VARCHAR},
       permission = #{permission,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -39,9 +39,9 @@
     from user
   </select>
   <select id="selectByNameAndPassword" resultMap="BaseResultMap">
-    select * from user where username = #{username} and password = #{password}
+    select * from user where username = #{userName,jdbcType=VARCHAR} and password = #{passWord,jdbcType=VARCHAR}
   </select>
   <select id="selectByName" resultMap="BaseResultMap">
-    select * from user where username = #{username}
+    select * from user where username = #{userName}
   </select>
 </mapper>

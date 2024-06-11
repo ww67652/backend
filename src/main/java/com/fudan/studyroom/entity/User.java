@@ -1,11 +1,11 @@
 package com.fudan.studyroom.entity;
 
 
+import lombok.Data;
 import lombok.Getter;
 
 import java.io.Serializable;
-
-@Getter
+@Data
 public class User implements Serializable {
     private Integer id;
 
@@ -17,7 +17,11 @@ public class User implements Serializable {
 
     private String role;
 
+    private Byte permission;
+
     private static final long serialVersionUID = 1L;
+
+
 
     public void setId(Integer id) {
         this.id = id;
