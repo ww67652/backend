@@ -1,14 +1,17 @@
 package com.fudan.studyroom.entity;
 
 
-import java.io.Serializable;
+import lombok.Data;
+import lombok.Getter;
 
+import java.io.Serializable;
+@Data
 public class Seat implements Serializable {
     private Integer id;
 
     private Integer rid;
 
-    private Boolean ocupied;
+    private Boolean occupied;
 
     private Byte type;
 
@@ -16,40 +19,20 @@ public class Seat implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
-
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getRid() {
-        return rid;
     }
 
     public void setRid(Integer rid) {
         this.rid = rid;
     }
 
-    public Boolean getOcupied() {
-        return ocupied;
-    }
-
-    public void setOcupied(Boolean ocupied) {
-        this.ocupied = ocupied;
-    }
-
-    public Byte getType() {
-        return type;
+    public void setOccupied(Boolean occupied) {
+        this.occupied = occupied;
     }
 
     public void setType(Byte type) {
         this.type = type;
-    }
-
-    public Boolean getCharge() {
-        return charge;
     }
 
     public void setCharge(Boolean charge) {
@@ -58,18 +41,16 @@ public class Seat implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", rid=").append(rid);
-        sb.append(", ocupied=").append(ocupied);
-        sb.append(", type=").append(type);
-        sb.append(", charge=").append(charge);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", rid=" + rid +
+                ", occupied=" + occupied +
+                ", type=" + type +
+                ", charge=" + charge +
+                ", serialVersionUID=" + serialVersionUID +
+                "]";
     }
 
     @Override
@@ -86,7 +67,7 @@ public class Seat implements Serializable {
         Seat other = (Seat) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getRid() == null ? other.getRid() == null : this.getRid().equals(other.getRid()))
-            && (this.getOcupied() == null ? other.getOcupied() == null : this.getOcupied().equals(other.getOcupied()))
+            && (this.getOccupied() == null ? other.getOccupied() == null : this.getOccupied().equals(other.getOccupied()))
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
             && (this.getCharge() == null ? other.getCharge() == null : this.getCharge().equals(other.getCharge()));
     }
@@ -97,7 +78,7 @@ public class Seat implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getRid() == null) ? 0 : getRid().hashCode());
-        result = prime * result + ((getOcupied() == null) ? 0 : getOcupied().hashCode());
+        result = prime * result + ((getOccupied() == null) ? 0 : getOccupied().hashCode());
         result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
         result = prime * result + ((getCharge() == null) ? 0 : getCharge().hashCode());
         return result;

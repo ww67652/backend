@@ -1,12 +1,12 @@
-package com.fudan.studyroom.dao
+package com.fudan.studyroom.dao;
+import com.fudan.studyroom.entity.Room;
+import org.apache.ibatis.annotations.Mapper;
 
--room.generator.dao;
-
-import com.fudan.study-room.generator.entity.Room;
 import java.util.List;
 
+@Mapper
 public interface RoomMapper {
-    int deleteByPrimaryKey(Integer id);
+    void deleteByPrimaryKey(Integer id);
 
     int insert(Room record);
 
@@ -14,5 +14,7 @@ public interface RoomMapper {
 
     List<Room> selectAll();
 
-    int updateByPrimaryKey(Room record);
+    void updateByPrimaryKey(int roomId, Room room);
+
+    List<Room> selectByAddress(String address, boolean available);
 }

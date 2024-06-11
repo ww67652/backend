@@ -1,10 +1,10 @@
-package com.fudan.studyroom.dao
+package com.fudan.studyroom.dao;
+import com.fudan.studyroom.entity.Record;
+import org.apache.ibatis.annotations.Mapper;
 
--room.generator.dao;
-
-import com.fudan.study-room.generator.entity.Record;
 import java.util.List;
 
+@Mapper
 public interface RecordMapper {
     int deleteByPrimaryKey(Integer id);
 

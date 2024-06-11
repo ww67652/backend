@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fudan.study-room.generator.dao.SeatMapper" >
-  <resultMap id="BaseResultMap" type="com.fudan.study-room.generator.entity.Seat" >
+<mapper namespace="com.fudan.studyroom.dao.SeatMapper" >
+  <resultMap id="BaseResultMap" type="com.fudan.studyroom.entity.Seat" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="rid" property="rid" jdbcType="INTEGER" />
     <result column="ocupied" property="ocupied" jdbcType="BIT" />
@@ -12,7 +12,7 @@
     delete from seat
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fudan.study-room.generator.entity.Seat" >
+  <insert id="insert" parameterType="com.fudan.studyroom.entity.Seat" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -21,7 +21,7 @@
     values (#{rid,jdbcType=INTEGER}, #{ocupied,jdbcType=BIT}, #{type,jdbcType=TINYINT}, 
       #{charge,jdbcType=BIT})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.fudan.study-room.generator.entity.Seat" >
+  <update id="updateByPrimaryKey" parameterType="com.fudan.studyroom.entity.Seat" >
     update seat
     set rid = #{rid,jdbcType=INTEGER},
       ocupied = #{ocupied,jdbcType=BIT},

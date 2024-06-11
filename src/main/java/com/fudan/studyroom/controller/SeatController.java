@@ -1,36 +1,59 @@
-package com.example.studyroom.controller;
+package com.fudan.studyroom.controller;
 
-import com.example.studyroom.entity.Seat;
-import com.example.studyroom.service.SeatService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.fudan.studyroom.entity.Seat;
+import com.fudan.studyroom.service.SeatService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import javax.annotation.Resource;
+import java.util.Date;
 
-@RestController
 @RequestMapping("/api/seats")
+@Controller
 public class SeatController {
 
-    @Autowired
+    @Resource
     private SeatService seatService;
 
-    @PostMapping("/{studyRoomId}")
-    public Seat addSeat(@PathVariable Long studyRoomId, @RequestBody Seat seat) {
-        return seatService.addSeat(studyRoomId, seat);
+    @RequestMapping(value = "{roomId}", method = RequestMethod.POST)
+    public void addSeat(
+            @PathVariable("roomId")Integer roomId,
+            @RequestParam("seat") Seat seat) {
+        seatService.addSeat(roomId, seat);
     }
 
-    @GetMapping("/{studyRoomId}")
-    public List<Seat> getSeatsByStudyRoom(@PathVariable Long studyRoomId) {
-        return seatService.getSeatsByStudyRoom(studyRoomId);
+    @RequestMapping(value = "{roomId}/{seatId}", method = RequestMethod.DELETE)
+    public void deleteSeat(
+            @PathVariable("seatId")Integer seatId, @PathVariable String roomId) {
+        seatService.deleteSeat(seatId);
     }
 
-    @PutMapping("/{id}")
-    public Seat updateSeat(@PathVariable Long id, @RequestBody Seat seat) {
-        return seatService.updateSeat(id, seat);
+
+    @RequestMapping(value = "{roomId}/{seatId}", method = RequestMethod.PUT)
+    public void updateSeat(
+            @PathVariable("seatId")Integer seatId,
+            @RequestParam("seat") Seat seat) {
+        seatService.updateSeat(seatId, seat);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteSeat(@PathVariable Long id) {
-        seatService.deleteSeat(id);
+    @RequestMapping(value = "{roomId}/{seatId}", method = RequestMethod.GET)
+    public Seat getSeat(
+            @PathVariable("seatId")Integer seatId) {
+        return seatService.getSeat(seatId);
     }
+
+    @RequestMapping(value = "{roomId}", method = RequestMethod.GET)
+    public void ReserveSeat(
+            @PathVariable("roomId")Integer roomId,
+            @RequestParam("seatId")Integer seatId,
+            @RequestParam("userId")Integer userId,
+            @RequestParam("startTime") Date startTime,
+            @RequestParam("endTime")Date endTime) {
+        seatService.ReserveSeat(roomId, seatId, userId, startTime, endTime);
+    }
+
+
 }

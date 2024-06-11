@@ -1,8 +1,12 @@
 package com.fudan.studyroom.entity;
 
+import lombok.Data;
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.util.Date;
-
+@Data
+@Getter
 public class Record implements Serializable {
     private Integer id;
 
@@ -22,64 +26,32 @@ public class Record implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
-
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUid() {
-        return uid;
     }
 
     public void setUid(Integer uid) {
         this.uid = uid;
     }
 
-    public Integer getRid() {
-        return rid;
-    }
-
     public void setRid(Integer rid) {
         this.rid = rid;
-    }
-
-    public Integer getSid() {
-        return sid;
     }
 
     public void setSid(Integer sid) {
         this.sid = sid;
     }
 
-    public Date getReserveTime() {
-        return reserveTime;
-    }
-
     public void setReserveTime(Date reserveTime) {
         this.reserveTime = reserveTime;
-    }
-
-    public Date getStartTime() {
-        return startTime;
     }
 
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
-        return endTime;
-    }
-
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
-    }
-
-    public Boolean getAttendance() {
-        return attendance;
     }
 
     public void setAttendance(Boolean attendance) {
@@ -88,21 +60,19 @@ public class Record implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", uid=").append(uid);
-        sb.append(", rid=").append(rid);
-        sb.append(", sid=").append(sid);
-        sb.append(", reserveTime=").append(reserveTime);
-        sb.append(", startTime=").append(startTime);
-        sb.append(", endTime=").append(endTime);
-        sb.append(", attendance=").append(attendance);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return getClass().getSimpleName() +
+                " [" +
+                "Hash = " + hashCode() +
+                ", id=" + id +
+                ", uid=" + uid +
+                ", rid=" + rid +
+                ", sid=" + sid +
+                ", reserveTime=" + reserveTime +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", attendance=" + attendance +
+                ", serialVersionUID=" + serialVersionUID +
+                "]";
     }
 
     @Override

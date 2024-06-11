@@ -1,10 +1,10 @@
-package com.fudan.studyroom.dao
+package com.fudan.studyroom.dao;
+import com.fudan.studyroom.entity.Seat;
+import org.apache.ibatis.annotations.Mapper;
 
--room.generator.dao;
-
-import com.fudan.study-room.generator.entity.Seat;
 import java.util.List;
 
+@Mapper
 public interface SeatMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,5 +14,5 @@ public interface SeatMapper {
 
     List<Seat> selectAll();
 
-    int updateByPrimaryKey(Seat record);
+    int updateByPrimaryKey(Integer id, Seat seat);
 }

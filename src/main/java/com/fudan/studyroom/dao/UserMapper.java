@@ -1,10 +1,10 @@
-package com.fudan.studyroom.dao
+package com.fudan.studyroom.dao;
+import com.fudan.studyroom.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
--room.generator.dao;
-
-import com.fudan.study-room.generator.entity.User;
 import java.util.List;
 
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -15,4 +15,8 @@ public interface UserMapper {
     List<User> selectAll();
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectByNameAndPassword(String name, String password);
+
+    User selectByName(String name);
 }

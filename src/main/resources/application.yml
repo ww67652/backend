@@ -4,22 +4,22 @@ spring:
     name: study_room
   datasource:
     name: study_room
-    url: jdbc:mysql://localhost:3306/study_room?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    username: root
-    password: 20001206
+    url: jdbc:mysql://118.25.194.239:3306/study_room?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: study_room
+    password: Aa123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath:dao/*.xml
-  type-aliases-package: com.fudan.study-room.mybatis.entity
+  type-aliases-package: com.fudan.studyroom.mybatis.entity
 
 logging:
   level:
     root: info
 
 server:
-  port: 8081
+  port: 8082
   use-forward-headers: true
 
