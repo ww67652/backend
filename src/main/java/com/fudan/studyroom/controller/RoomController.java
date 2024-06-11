@@ -28,7 +28,6 @@ public class RoomController {
         roomService.deleteRoom(roomId);
     }
 
-
     // 示例：更新自习室
     @RequestMapping(value = "/{roomId}",method = RequestMethod.PUT)
     public void updateRoom(@PathVariable("roomId") int roomId, Room room) {

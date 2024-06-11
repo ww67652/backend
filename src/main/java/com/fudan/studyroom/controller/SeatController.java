@@ -26,7 +26,7 @@ public class SeatController {
 
     @RequestMapping(value = "{roomId}/{seatId}", method = RequestMethod.DELETE)
     public void deleteSeat(
-            @PathVariable("seatId")Integer seatId) {
+            @PathVariable("seatId")Integer seatId, @PathVariable String roomId) {
         seatService.deleteSeat(seatId);
     }
 
@@ -43,5 +43,5 @@ public class SeatController {
             @PathVariable("seatId")Integer seatId) {
         return seatService.getSeat(seatId);
     }
-
+ 
 }
