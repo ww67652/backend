@@ -40,4 +40,9 @@
     select id, address, available, `type`, open_start_time, open_end_time
     from room
   </select>
+  <select id="selectByAddress" resultMap="BaseResultMap">
+    select id, address, available, open_start_time, open_end_time, seatNum
+    from room
+    where address = #{address,jdbcType=VARCHAR}
+  </select>
 </mapper>

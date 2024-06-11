@@ -43,5 +43,14 @@ public class SeatController {
             @PathVariable("seatId")Integer seatId) {
         return seatService.getSeat(seatId);
     }
- 
+
+    @RequestMapping(value = "{roomId}", method = RequestMethod.GET)
+    public void ReserveSeat(
+            @PathVariable("roomId")Integer roomId,
+            @RequestParam("seatId")Integer seatId,
+            @RequestParam("userId")Integer userId) {
+        seatService.ReserveSeat(roomId, seatId, userId);
+    }
+
+
 }

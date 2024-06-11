@@ -11,4 +11,5 @@ public interface SeatService {
 
     Seat getSeat(Integer seatId);
 
+    void ReserveSeat(Integer roomId, Integer seatId, Integer userId);
 }

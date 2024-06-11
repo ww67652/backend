@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -33,4 +34,16 @@ public class RoomController {
     public void updateRoom(@PathVariable("roomId") int roomId, Room room) {
         roomService.updateRoom(roomId, room);
     }
+
+    // 示例：获取自习室列表
+    @RequestMapping(value = "",method = RequestMethod.GET)
+    public List<Room> getRooms(
+            @RequestParam(defaultValue = "") String building,
+            @RequestParam(defaultValue = "") Integer floor,
+            @RequestParam(defaultValue = "") Integer room,
+            @RequestParam(defaultValue = "0") boolean available
+    ) {
+        return roomService.getRooms(building, floor, room, available);
+    }
+
 }

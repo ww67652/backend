@@ -43,4 +43,14 @@ public class SeatServiceImpl implements SeatService {
     public Seat getSeat(Integer seatId) {
         return seatMapper.selectByPrimaryKey(seatId);
     }
+
+
+    @Override
+    public void ReserveSeat(Integer roomId, Integer seatId, Integer userId){
+        seatMapper.ReserveSeat(roomId, seatId, userId);
+        Room room = roomMapper.selectByPrimaryKey(roomId);
+        room.setSeatNum(room.getSeatNum() - 1);
+        roomMapper.updateByPrimaryKey(roomId, room);
+    }
+
 }

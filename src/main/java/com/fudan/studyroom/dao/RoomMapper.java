@@ -15,4 +15,6 @@ public interface RoomMapper {
     List<Room> selectAll();
 
     void updateByPrimaryKey(int roomId, Room record);
+
+    List<Room> selectByAddress(String address, boolean available);
 }
